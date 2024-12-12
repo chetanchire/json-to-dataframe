@@ -73,21 +73,25 @@ for (i in 2: length(fi))
         
         if (length(JSONdata$`Run Details`) >= JSONdata$`Cycle Data`[[k]]$run_num) {
           summData$rig_Name[b] <- JSONdata$`Run Details`[[JSONdata$`Cycle Data`[[k]]$run_num]]$`Rig Name`
+          summData$run_name[b] <- JSONdata$`Run Details`[[JSONdata$`Cycle Data`[[k]]$run_num]]$`Run Name`
+          summData$additional_notes[b] <- JSONdata$`Run Details`[[JSONdata$`Cycle Data`[[k]]$run_num]]$`Run Completion Details`$`Additional Notes`
           } else {
             summData$rig_Name[b] <- 'DNF'
+            summData$run_name[b] <- 'DNF'
+            summData$additional_notes[b] <- 'DNF'
           }
         
-        if (length(JSONdata$`Run Details`) >= JSONdata$`Cycle Data`[[k]]$run_num) {
-          summData$run_name[b] <- JSONdata$`Run Details`[[JSONdata$`Cycle Data`[[k]]$run_num]]$`Run Name`
-        } else {
-          summData$run_name[b] <- 'DNF'
-        }
-        
-        if (length(JSONdata$`Run Details`) >= JSONdata$`Cycle Data`[[k]]$run_num) {
-          summData$additional_notes[b] <- JSONdata$`Run Details`[[JSONdata$`Cycle Data`[[k]]$run_num]]$`Run Completion Details`$`Additional Notes`
-        } else {
-          summData$additional_notes[b] <- 'DNF'
-        }
+        # if (length(JSONdata$`Run Details`) >= JSONdata$`Cycle Data`[[k]]$run_num) {
+        #   summData$run_name[b] <- JSONdata$`Run Details`[[JSONdata$`Cycle Data`[[k]]$run_num]]$`Run Name`
+        # } else {
+        #   summData$run_name[b] <- 'DNF'
+        # }
+        # 
+        # if (length(JSONdata$`Run Details`) >= JSONdata$`Cycle Data`[[k]]$run_num) {
+        #   summData$additional_notes[b] <- JSONdata$`Run Details`[[JSONdata$`Cycle Data`[[k]]$run_num]]$`Run Completion Details`$`Additional Notes`
+        # } else {
+        #   summData$additional_notes[b] <- 'DNF'
+        # }
       }
     }
     
@@ -106,21 +110,25 @@ for (i in 2: length(fi))
         
         if (length(JSONdata$`Run Details`) >= JSONdata$`Non-Detect Cycle Data`[[i]]$run_num) {
           summData$rig_Name[b] <- JSONdata$`Run Details`[[JSONdata$`Non-Detect Cycle Data`[[i]]$run_num]]$`Rig Name`
-        } else {
-          summData$rig_Name[b] <- 'DNF'
-        }
-        
-        if (length(JSONdata$`Run Details`) >= JSONdata$`Non-Detect Cycle Data`[[i]]$run_num) {
           summData$run_name[b] <- JSONdata$`Run Details`[[JSONdata$`Non-Detect Cycle Data`[[i]]$run_num]]$`Run Name`
-        } else {
-          summData$run_name[b] <- 'DNF'
-        }
-        
-        if (length(JSONdata$`Run Details`) >= JSONdata$`Non-Detect Cycle Data`[[i]]$run_num) {
           summData$additional_notes[b] <- JSONdata$`Run Details`[[JSONdata$`Non-Detect Cycle Data`[[i]]$run_num]]$`Run Completion Details`$`Additional Notes`
         } else {
+          summData$rig_Name[b] <- 'DNF'
+          summData$run_name[b] <- 'DNF'
           summData$additional_notes[b] <- 'DNF'
         }
+        
+        # if (length(JSONdata$`Run Details`) >= JSONdata$`Non-Detect Cycle Data`[[i]]$run_num) {
+        #   summData$run_name[b] <- JSONdata$`Run Details`[[JSONdata$`Non-Detect Cycle Data`[[i]]$run_num]]$`Run Name`
+        # } else {
+        #   summData$run_name[b] <- 'DNF'
+        # }
+        # 
+        # if (length(JSONdata$`Run Details`) >= JSONdata$`Non-Detect Cycle Data`[[i]]$run_num) {
+        #   summData$additional_notes[b] <- JSONdata$`Run Details`[[JSONdata$`Non-Detect Cycle Data`[[i]]$run_num]]$`Run Completion Details`$`Additional Notes`
+        # } else {
+        #   summData$additional_notes[b] <- 'DNF'
+        # }
       }
     }
     for (j in 1: length(JSONdata$`Lane Content`)) {

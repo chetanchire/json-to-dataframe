@@ -1,7 +1,15 @@
 library(dplyr)
 library(RJSONIO)
+library(tidyverse)
 setwd("//ProteowiseNAS2/Run Data/Beta Run Data")
 fi <- list.files(pattern = "ReagentLog.json", recursive = TRUE, full.names = TRUE)
+
+separation_current <- function(fi, run_name) {
+  fipath <- file.path(substring(fi, 1, 13), run_name, "DataLog.tsv")
+  DataLog <- read_delim(fipath, delim = "\t", escape_double = FALSE, trim_ws = TRUE)
+  dl2 <- filter(DataLog, DataLog$station == "SEPARATION" & DataLog$mode == "FILL")
+  return(dl2)
+}
 
 summaryData <- data.frame(carrierID = character(), data_type = character(),
                           index = integer(), run_num = integer(), label = character(),

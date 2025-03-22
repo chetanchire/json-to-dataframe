@@ -57,7 +57,8 @@ for (i in 2: length(fi)) {
       summ_data$rig_Name[a] <- json_data$`Run Details`[[j]]$`Rig Name`
       summ_data$run_num[a] <- json_data$`Run Details`[[j]]$`Run Num`
       summ_data$run_name[a] <- json_data$`Run Details`[[j]]$`Run Name`
-      summ_data$additional_notes[a] <- as.character(json_data$`Run Details`[[j]]$`Run Completion Details`$`Additional Notes`)
+      summ_data$additional_notes[a] <-
+        as.character(json_data$`Run Details`[[j]]$`Run Completion Details`$`Additional Notes`)
     }
 
     if (length(json_data$`Cycle Data`) > 0) {
@@ -89,7 +90,8 @@ for (i in 2: length(fi)) {
             json_data$`Run Details`[[parent_run_num]]$`Rig Name`
           summ_data$run_name[b] <-
             json_data$`Run Details`[[parent_run_num]]$`Run Name`
-          summ_data$additional_notes[b] <- as.character(json_data$`Run Details`[[parent_run_num]]$`Run Completion Details`$`Additional Notes`)
+          summ_data$additional_notes[b] <-
+            as.character(json_data$`Run Details`[[parent_run_num]]$`Run Completion Details`$`Additional Notes`)
         } else {
           summ_data$rig_Name[b] <- "DNF"
           summ_data$run_name[b] <- "DNF"
@@ -127,7 +129,8 @@ for (i in 2: length(fi)) {
             json_data$`Run Details`[[parent_run_num]]$`Rig Name`
           summ_data$run_name[b] <-
             json_data$`Run Details`[[parent_run_num]]$`Run Name`
-          summ_data$additional_notes[b] <- as.character(json_data$`Run Details`[[parent_run_num]]$`Run Completion Details`$`Additional Notes`)
+          summ_data$additional_notes[b] <-
+            as.character(json_data$`Run Details`[[parent_run_num]]$`Run Completion Details`$`Additional Notes`)
         } else {
           summ_data$rig_Name[b] <- "DNF"
           summ_data$run_name[b] <- "DNF"

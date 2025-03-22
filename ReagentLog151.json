@@ -1,0 +1,298 @@
+{
+    "Baseline Rev.": "1001",
+    "Cartridge Rev.": "Alpha",
+    "Cartridge ID": "1000IG SOP 3/17",
+    "Carrier Rev.": "Alpha",
+    "Carrier ID": "C250124_151",
+    "Run Kit Lot Number": "RUN KIT LOT NUMBER",
+    "Run Kit Rev.": "NCIHB002A",
+    "Lubricant": "LUBRICANT",
+    "Sample (PrP) Batch": "1:100 Ladder",
+    "Sample (PrP) Vial Number": "SAMPLE (PRP) VIAL NUMBER",
+    "Formulation": "9",
+    "Gel Lot Number": "GEL LOT NUMBER",
+    "Rev.": "14025S",
+    "Lot Number": "LOT NUMBER",
+    "Run Details": [
+        {
+            "Run Num": 1,
+            "Rig Name": "Beta 002",
+            "Run Name": "Separation - Transfer - 001",
+            "Detect Kit Lot Number": "DETECT KIT LOT NUMBER",
+            "Detect Kit Rev.": "NCIHB0001A",
+            "Run Completion Details": {
+                "Port Leak": 0,
+                "Carrier Leak": 0,
+                "Plug Leak": 0,
+                "Electrode Leak": 0,
+                "Plunger Leak": 0,
+                "Via Leak": 0,
+                "Cartridge Leak": 0,
+                "Membrane Broke": 0,
+                "No Current": 0,
+                "Low Current": 0,
+                "High Current": 0,
+                "Low Hold dP": 0,
+                "High Hold dP": 0,
+                "No Flow": 0,
+                "Port Obstruction": 0,
+                "Reagent Runout": 0,
+                "# Failure Types": 0,
+                "Additional Notes": "Complete in one go"
+            }
+        },
+        {
+            "Run Num": 2,
+            "Rig Name": "Beta 001",
+            "Run Name": "Detect Cycle 001 - 001",
+            "Detect Kit Lot Number": "DETECT KIT LOT NUMBER",
+            "Detect Kit Rev.": "NCIHB0001A",
+            "Run Completion Details": {
+                "Port Leak": 0,
+                "Carrier Leak": 0,
+                "Plug Leak": 0,
+                "Electrode Leak": 0,
+                "Plunger Leak": 0,
+                "Via Leak": 0,
+                "Cartridge Leak": 0,
+                "Membrane Broke": 0,
+                "No Current": 0,
+                "Low Current": 0,
+                "High Current": 0,
+                "Low Hold dP": 0,
+                "High Hold dP": 0,
+                "No Flow": 0,
+                "Port Obstruction": 0,
+                "Reagent Runout": 0,
+                "# Failure Types": 0,
+                "Additional Notes": "DONE"
+            }
+        }
+    ],
+    "Cycle Data": [
+        {
+            "index": 1,
+            "label": "Anti-Strep epitope Tag antibody [HL1252] (GTX636654) #1252",
+            "catalog_num": "1252",
+            "barcode_no": null,
+            "is_ladder": true,
+            "run_num": 2,
+            "is_lane_find": false,
+            "exposure_lengths": [
+                7272,
+                3636,
+                1818,
+                909,
+                455,
+                228
+            ],
+            "led_currents": [
+                10.0,
+                10.0,
+                10.0,
+                10.0,
+                10.0,
+                10.0
+            ],
+            "script_name": "Detect - V06p12.csv",
+            "cycle_metrics": {
+                "avg_final_wash_thru_dp": 1.25,
+                "avg_final_wash_thru_Q0": 3.04,
+                "avg_final_wash_thru_Q1": 3.23,
+                "avg_final_wash_thru_Q2": 0.0,
+                "avg_final_wash_thru_Qm": 0.2,
+                "avg_final_wash_thru_rhyd": 0.4,
+                "avg_final_wash_thru_temp_0": 32.37,
+                "avg_final_wash_thru_temp_1": 31.19,
+                "avg_final_wash_thru_temp_2": 35.03,
+                "avg_first_hold_rhyd": null,
+                "avg_first_hold_dp": null,
+                "avg_first_hold_Qm": null,
+                "avg_peak_xfr_ec": null,
+                "avg_peak_sep_ec": null,
+                "avg_bubble_0": 0.0,
+                "avg_bubble_1": 0.0,
+                "avg_bubble_2": 0.0,
+                "bubble_score_0": NaN,
+                "bubble_score_1": NaN,
+                "bubble_score_2": null
+            },
+            "experiment_name": "",
+            "cycle_end_date": "250319"
+        }
+    ],
+    "Non-Detect Cycle Data": [
+        {
+            "index": 1,
+            "label": "Separation - Transfer",
+            "catalog_num": "",
+            "barcode_no": null,
+            "is_ladder": false,
+            "run_num": 1,
+            "is_lane_find": false,
+            "exposure_lengths": [
+                7272,
+                3636,
+                1818,
+                909,
+                455,
+                228
+            ],
+            "led_currents": [
+                12.4,
+                12.4,
+                12.4,
+                12.4,
+                12.4,
+                12.4
+            ],
+            "script_name": "Sep Tx 20 - V50p28 sandboxMode 001.csv",
+            "cycle_metrics": {
+                "avg_final_wash_thru_dp": null,
+                "avg_final_wash_thru_Q0": null,
+                "avg_final_wash_thru_Q1": null,
+                "avg_final_wash_thru_Q2": null,
+                "avg_final_wash_thru_Qm": null,
+                "avg_final_wash_thru_rhyd": null,
+                "avg_final_wash_thru_temp_0": null,
+                "avg_final_wash_thru_temp_1": null,
+                "avg_final_wash_thru_temp_2": null,
+                "avg_first_hold_rhyd": null,
+                "avg_first_hold_dp": null,
+                "avg_first_hold_Qm": null,
+                "avg_peak_xfr_ec": 42.06,
+                "avg_peak_sep_ec": 16.45,
+                "avg_bubble_0": 0.0079,
+                "avg_bubble_1": 0.0,
+                "avg_bubble_2": 0.0,
+                "bubble_score_0": NaN,
+                "bubble_score_1": NaN,
+                "bubble_score_2": null
+            },
+            "experiment_name": "Transfer investigation",
+            "cycle_end_date": "250319"
+        }
+    ],
+    "Lane Content": [
+        {
+            "index": 1,
+            "sample": "DCLadder",
+            "concentration": 0.0,
+            "treatment_class": ""
+        },
+        {
+            "index": 2,
+            "sample": "DCLadder",
+            "concentration": 0.0,
+            "treatment_class": ""
+        },
+        {
+            "index": 3,
+            "sample": "DCLadder",
+            "concentration": 0.0,
+            "treatment_class": ""
+        },
+        {
+            "index": 4,
+            "sample": "DCLadder",
+            "concentration": 0.0,
+            "treatment_class": ""
+        },
+        {
+            "index": 5,
+            "sample": "DCLadder",
+            "concentration": 0.0,
+            "treatment_class": ""
+        },
+        {
+            "index": 6,
+            "sample": "DCLadder",
+            "concentration": 0.0,
+            "treatment_class": ""
+        },
+        {
+            "index": 7,
+            "sample": "DCLadder",
+            "concentration": 0.0,
+            "treatment_class": ""
+        },
+        {
+            "index": 8,
+            "sample": "DCLadder",
+            "concentration": 0.0,
+            "treatment_class": ""
+        },
+        {
+            "index": 9,
+            "sample": "DCLadder",
+            "concentration": 0.0,
+            "treatment_class": ""
+        },
+        {
+            "index": 10,
+            "sample": "DCLadder",
+            "concentration": 0.0,
+            "treatment_class": ""
+        },
+        {
+            "index": 11,
+            "sample": "DCLadder",
+            "concentration": 0.0,
+            "treatment_class": ""
+        },
+        {
+            "index": 12,
+            "sample": "DCLadder",
+            "concentration": 0.0,
+            "treatment_class": ""
+        },
+        {
+            "index": 13,
+            "sample": "DCLadder",
+            "concentration": 0.0,
+            "treatment_class": ""
+        },
+        {
+            "index": 14,
+            "sample": "DCLadder",
+            "concentration": 0.0,
+            "treatment_class": ""
+        },
+        {
+            "index": 15,
+            "sample": "DCLadder",
+            "concentration": 0.0,
+            "treatment_class": ""
+        },
+        {
+            "index": 16,
+            "sample": "DCLadder",
+            "concentration": 0.0,
+            "treatment_class": ""
+        },
+        {
+            "index": 17,
+            "sample": "DCLadder",
+            "concentration": 0.0,
+            "treatment_class": ""
+        },
+        {
+            "index": 18,
+            "sample": "DCLadder",
+            "concentration": 0.0,
+            "treatment_class": ""
+        },
+        {
+            "index": 19,
+            "sample": "DCLadder",
+            "concentration": 0.0,
+            "treatment_class": ""
+        },
+        {
+            "index": 20,
+            "sample": "DCLadder",
+            "concentration": 0.0,
+            "treatment_class": ""
+        }
+    ]
+}

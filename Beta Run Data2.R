@@ -38,23 +38,23 @@ summary_data <- data.frame(carrierID = character(), ctg_pkg_info = character(),
 
 for (i in 2: length(fi)) {
   json_data <- fromJSON(fi[i], nullValue = NA)
-  
   # cID <- NA
   # for (i in seq_len(length(fi))) {
   #   cID[i] <- strsplit(fi[i], "/")[[1]][length(strsplit(fi[i], "/")[[1]]) -1 ]
   # }
-  
-  carr_id <- strsplit(fi[i], "/")[[1]][length(strsplit(fi[i], "/")[[1]]) -1 ]
 
-  # if (length(json_data) == 18) {
-  #   summ_data <- summary_data[0, ]
-  #   if ("Carrier ID" %in% names(json_data)) {
-  #     carr_id <- json_data$`Carrier ID`
-  #   } else if ("Carrier Number" %in% names(json_data)) {
-  #     carr_id <- json_data$`Carrier Number`
-  #   } else {
-  #     carr_id <- NA
-  #   }
+  if (length(json_data) == 18) {
+    summ_data <- summary_data[0, ]
+
+    carr_id <- strsplit(fi[i], "/")[[1]][length(strsplit(fi[i], "/")[[1]]) - 1]
+
+    #   if ("Carrier ID" %in% names(json_data)) {
+    #     carr_id <- json_data$`Carrier ID`
+    #   } else if ("Carrier Number" %in% names(json_data)) {
+    #     carr_id <- json_data$`Carrier Number`
+    #   } else {
+    #     carr_id <- NA
+    #   }
 
     # for (j in 1: length(json_data$`Run Details`)) { # nolint
     for (j in seq_len(length(json_data$`Run Details`))) {
@@ -161,4 +161,3 @@ for (i in 2: length(fi)) {
 fname <- paste0("summary_data_", format(Sys.time(), "%Y%m%d_%H%M%S"), ".csv")
 write.csv(summary_data, fname, row.names = FALSE)
 rm(list = ls(), envir = globalenv())
-

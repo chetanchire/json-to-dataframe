@@ -41,15 +41,9 @@ for (i in 2: length(fi)) {
 
   if (length(json_data) == 18) {
     summ_data <- summary_data[0, ]
-    if ("Carrier ID" %in% names(json_data)) {
-      carr_id <- json_data$`Carrier ID`
-    } else if ("Carrier Number" %in% names(json_data)){
-      carr_id <- json_data$`Carrier Number`
-    } else {
-      carr_id <- NA
-    }
 
-    # for (j in 1: length(json_data$`Run Details`)) { # nolint
+    carr_id <- strsplit(fi[i], "/")[[1]][length(strsplit(fi[i], "/")[[1]]) - 1]
+
     for (j in seq_len(length(json_data$`Run Details`))) {
       a <- nrow(summ_data) + 1
       summ_data[a, ] <- NA
@@ -58,40 +52,33 @@ for (i in 2: length(fi)) {
       summ_data$run_num[a] <- json_data$`Run Details`[[j]]$`Run Num`
       summ_data$run_name[a] <- json_data$`Run Details`[[j]]$`Run Name`
       summ_data$additional_notes[a] <-
-        as.character(json_data$`Run Details`[[j]]$`Run Completion Details`$`Additional Notes`)
+        json_data$`Run Details`[[j]]$`Run Completion Details`$`Additional Notes`
     }
 
     if (length(json_data$`Cycle Data`) > 0) {
 
-      # for (k in 1: length(json_data$`Cycle Data`)) { # nolint
       for (k in seq_len(length(json_data$`Cycle Data`))) {
-
         b <- nrow(summ_data) + 1
         summ_data[b, ] <- NA
         summ_data$data_type[b] <- "Cycle Data"
         summ_data$index[b] <- json_data$`Cycle Data`[[k]]$index
         summ_data$run_num[b] <- json_data$`Cycle Data`[[k]]$run_num
         summ_data$label[b] <- json_data$`Cycle Data`[[k]]$label
-        summ_data$experiment_name[b] <-
-          json_data$`Cycle Data`[[k]]$experiment_name
+        summ_data$experiment_name[b] <- json_data$`Cycle Data`[[k]]$experiment_name
         summ_data$script_name[b] <- json_data$`Cycle Data`[[k]]$script_name
-        summ_data$avg_final_wash_thru_dp[b] <-
-          json_data$`Cycle Data`[[k]]$cycle_metrics[[1]]
+        summ_data$avg_final_wash_thru_dp[b] <- json_data$`Cycle Data`[[k]]$cycle_metrics[[1]]
 
         if ("cycle_end_date" %in% names(json_data$`Cycle Data`[[k]])) {
-          summ_data$cycle_end_date[b] <-
-            as.integer(json_data$`Cycle Data`[[k]]$cycle_end_date)
+          summ_data$cycle_end_date[b] <- as.integer(json_data$`Cycle Data`[[k]]$cycle_end_date)
         }
 
         if (length(json_data$`Run Details`) >=
               json_data$`Cycle Data`[[k]]$run_num) {
           parent_run_num <- json_data$`Cycle Data`[[k]]$run_num
-          summ_data$rig_Name[b] <-
-            json_data$`Run Details`[[parent_run_num]]$`Rig Name`
-          summ_data$run_name[b] <-
-            json_data$`Run Details`[[parent_run_num]]$`Run Name`
+          summ_data$rig_Name[b] <- json_data$`Run Details`[[parent_run_num]]$`Rig Name`
+          summ_data$run_name[b] <- json_data$`Run Details`[[parent_run_num]]$`Run Name`
           summ_data$additional_notes[b] <-
-            as.character(json_data$`Run Details`[[parent_run_num]]$`Run Completion Details`$`Additional Notes`)
+            json_data$`Run Details`[[parent_run_num]]$`Run Completion Details`$`Additional Notes`
         } else {
           summ_data$rig_Name[b] <- "DNF"
           summ_data$run_name[b] <- "DNF"
@@ -102,55 +89,51 @@ for (i in 2: length(fi)) {
 
     if (length(json_data$`Non-Detect Cycle Data`) > 0) {
 
-      # for (i in 1: length(json_data$`Non-Detect Cycle Data`)) { # nolint
-      for (i in seq_len(length(json_data$`Non-Detect Cycle Data`))) {
-        b <- nrow(summ_data) + 1
-        summ_data[b,] <- NA
-        summ_data$data_type[b] <- "Non-Detect Cycle Data"
-        summ_data$index[b] <- json_data$`Non-Detect Cycle Data`[[i]]$index
-        summ_data$run_num[b] <- json_data$`Non-Detect Cycle Data`[[i]]$run_num
-        summ_data$label[b] <- json_data$`Non-Detect Cycle Data`[[i]]$label
-        summ_data$experiment_name[b] <-
-          json_data$`Non-Detect Cycle Data`[[i]]$experiment_name
-        summ_data$script_name[b] <-
-          json_data$`Non-Detect Cycle Data`[[i]]$script_name
-        summ_data$avg_final_wash_thru_dp[b] <-
-          json_data$`Non-Detect Cycle Data`[[i]]$cycle_metrics[[1]]
+      for (m in seq_len(length(json_data$`Non-Detect Cycle Data`))) {
+        c <- nrow(summ_data) + 1
+        summ_data[c, ] <- NA
+        summ_data$data_type[c] <- "Non-Detect Cycle Data"
+        summ_data$index[c] <- json_data$`Non-Detect Cycle Data`[[m]]$index
+        summ_data$run_num[c] <- json_data$`Non-Detect Cycle Data`[[m]]$run_num
+        summ_data$label[c] <- json_data$`Non-Detect Cycle Data`[[m]]$label
+        summ_data$experiment_name[c] <- json_data$`Non-Detect Cycle Data`[[m]]$experiment_name
+        summ_data$script_name[c] <- json_data$`Non-Detect Cycle Data`[[m]]$script_name
+        summ_data$avg_final_wash_thru_dp[c] <- json_data$`Non-Detect Cycle Data`[[m]]$cycle_metrics[[1]]
 
         if ("cycle_end_date" %in% names(json_data$`Non-Detect Cycle Data`[[i]])) {
-          summ_data$cycle_end_date[b] <-
+          summ_data$cycle_end_date <
             as.integer(json_data$`Non-Detect Cycle Data`[[i]]$cycle_end_date)
         }
 
         if (length(json_data$`Run Details`) >=
-              json_data$`Non-Detect Cycle Data`[[i]]$run_num) {
-          parent_run_num <- json_data$`Non-Detect Cycle Data`[[i]]$run_num
-          summ_data$rig_Name[b] <-
-            json_data$`Run Details`[[parent_run_num]]$`Rig Name`
-          summ_data$run_name[b] <-
-            json_data$`Run Details`[[parent_run_num]]$`Run Name`
-          summ_data$additional_notes[b] <-
-            as.character(json_data$`Run Details`[[parent_run_num]]$`Run Completion Details`$`Additional Notes`)
+              json_data$`Non-Detect Cycle Data`[[m]]$run_num) {
+          parent_run_num <- json_data$`Non-Detect Cycle Data`[[m]]$run_num
+          summ_data$rig_Name[c] <- json_data$`Run Details`[[parent_run_num]]$`Rig Name`
+          summ_data$run_name[c] <- json_data$`Run Details`[[parent_run_num]]$`Run Name`
+          summ_data$additional_notes[c] <-
+            json_data$`Run Details`[[parent_run_num]]$`Run Completion Details`$`Additional Notes`
         } else {
-          summ_data$rig_Name[b] <- "DNF"
-          summ_data$run_name[b] <- "DNF"
-          summ_data$additional_notes[b] <- "DNF"
+          summ_data$rig_Name[c] <- "DNF"
+          summ_data$run_name[c] <- "DNF"
+          summ_data$additional_notes[c] <- "DNF"
         }
       }
     }
-    # for (j in 1: length(json_data$`Lane Content`)) { # nolint
-    for (j in seq_len(length(json_data$`Lane Content`))) {
-      summ_data[, 14 + 2 * j] <- json_data$`Lane Content`[[j]]$sample
-      summ_data[, 15 + 2 * j] <- json_data$`Lane Content`[[j]]$concentration
+
+    for (n in seq_len(length(json_data$`Lane Content`))) {
+      summ_data[, 14 + 2 * n] <- json_data$`Lane Content`[[n]]$sample
+      summ_data[, 15 + 2 * n] <- json_data$`Lane Content`[[n]]$concentration
     }
 
     summ_data$no_of_lanes <- length(json_data$`Lane Content`)
+    # summ_data$carrierID <- strsplit(fi[i], "/")[[1]][length(strsplit(fi[i], "/")[[1]]) - 1]
     summ_data$carrierID <- carr_id
     summ_data$ctg_pkg_info <- json_data$`Cartridge ID`
     summ_data$ctg_prep_notes <- json_data$`Carrier Rev`
     summary_data <- bind_rows(summary_data, summ_data)
   }
 }
+
 fname <- paste0("summary_data_", format(Sys.time(), "%Y%m%d_%H%M%S"), ".csv")
 write.csv(summary_data, fname, row.names = FALSE)
 rm(list = ls(), envir = globalenv())

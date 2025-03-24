@@ -42,7 +42,12 @@ for (i in 2: length(fi)) {
   if (length(json_data) == 18) {
     summ_data <- summary_data[0, ]
 
-    carr_id <- strsplit(fi[i], "/")[[1]][length(strsplit(fi[i], "/")[[1]]) - 1]
+    carr_id1 <- strsplit(fi[i], "/")[[1]][length(strsplit(fi[i], "/")[[1]]) - 1]
+    if (nchar(carr_id1) > 11) {
+      carr_id <- substr(carr_id1, 1, 11)
+    } else {
+      carr_id <- carr_id1
+    }
 
     for (j in seq_len(length(json_data$`Run Details`))) {
       a <- nrow(summ_data) + 1

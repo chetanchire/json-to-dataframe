@@ -101,7 +101,7 @@ for (i in 2: length(fi)) {
         summ_data$avg_final_wash_thru_dp[c] <- json_data$`Non-Detect Cycle Data`[[m]]$cycle_metrics[[1]]
 
         if ("cycle_end_date" %in% names(json_data$`Non-Detect Cycle Data`[[i]])) {
-          summ_data$cycle_end_date <
+          summ_data$cycle_end_date[b] <-
             as.integer(json_data$`Non-Detect Cycle Data`[[i]]$cycle_end_date)
         }
 

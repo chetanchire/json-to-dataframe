@@ -118,7 +118,7 @@ for (i in 2: length(fi)) {
           json_data$`Non-Detect Cycle Data`[[i]]$cycle_metrics[[1]]
 
         if ("cycle_end_date" %in% names(json_data$`Non-Detect Cycle Data`[[i]])) {
-          summ_data$cycle_end_date <
+          summ_data$cycle_end_date[b] <-
             as.integer(json_data$`Non-Detect Cycle Data`[[i]]$cycle_end_date)
         }
 

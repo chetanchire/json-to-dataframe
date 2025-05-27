@@ -12,7 +12,8 @@ summary_data <- data.frame(carrierID = character(), ctg_pkg_info = character(),
   ctg_prep_notes = character(), user_name = character(), data_type = character(),
   hyperlink = character(), image = character(), post_run_notes = character(),
   cycle_end_date = integer(), index = integer(), run_num = integer(), label = character(),
-  experiment_name = character(), script_name = character(), avg_final_wash_thru_dp = numeric(), rig_Name = character(),
+  experiment_name = character(), script_name = character(), avg_final_wash_thru_dp = numeric(),
+  avg_peak_sep_ec = numeric(), avg_peak_xfr_ec = numeric(), rig_Name = character(),
   run_name = character(), additional_notes = character(), no_of_lanes = integer(),
   sample_1 = character(), concentration_1 = double(), sample_2 = character(), concentration_2 = double(),
   sample_3 = character(), concentration_3 = double(), sample_4 = character(), concentration_4 = double(),
@@ -87,6 +88,8 @@ for (i in 2: length(fi)) {
         summ_data$experiment_name[c] <- json_data$`Non-Detect Cycle Data`[[m]]$experiment_name
         summ_data$script_name[c] <- json_data$`Non-Detect Cycle Data`[[m]]$script_name
         summ_data$avg_final_wash_thru_dp[c] <- json_data$`Non-Detect Cycle Data`[[m]]$cycle_metrics[[1]]
+        summ_data$avg_peak_sep_ec[c] <- json_data$`Non-Detect Cycle Data`[[m]]$cycle_metrics[[14]]
+        summ_data$avg_peak_xfr_ec[c] <- json_data$`Non-Detect Cycle Data`[[m]]$cycle_metrics[[13]]
 
         if ("cycle_end_date" %in% names(json_data$`Non-Detect Cycle Data`[[m]])) {
           summ_data$cycle_end_date[c] <-
@@ -109,8 +112,9 @@ for (i in 2: length(fi)) {
     }
 
     for (n in seq_len(length(json_data$`Lane Content`))) {
-      summ_data[, 18 + 2 * n] <- json_data$`Lane Content`[[n]]$sample
-      summ_data[, 19 + 2 * n] <- json_data$`Lane Content`[[n]]$concentration
+      summ_data[, (ncol(summary_data) - 41) + 2 * n] <- json_data$`Lane Content`[[n]]$sample
+      summ_data[, (ncol(summary_data) - 40) + 2 * n] <- json_data$`Lane Content`[[n]]$concentration
+      # Next rev, replace 18 and 19 with ncol(summary_data) - 41 and ncol(summary_data) - 40 respectively
     }
     summ_data$no_of_lanes <- length(json_data$`Lane Content`)
 
